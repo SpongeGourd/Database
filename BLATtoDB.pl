@@ -10,8 +10,6 @@ my $output = shift @ARGV;
 my $in = Bio::SeqIO ->new (-file => $input, -format => "Fasta");
 open OUT, ">$output";
 
-
-
 while (my $seq =$in ->next_seq() ){
 
 ##eg. $content1 = 4472739.3|SRR061299.11398118|GenBank|ADB81539.1
@@ -23,7 +21,6 @@ while (my $seq =$in ->next_seq() ){
 
 	$content =~ s/ \[/\|/g;
 	$content =~ s/\]//g;
-
 
 	my @column=split /\|/, $content;
 	my $sample_id = $column[0];
